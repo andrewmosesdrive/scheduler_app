@@ -1,41 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <!-- Additional CSS -->
+    <link rel="stylesheet" href="bootstrap+.css" type="text/css" />
+    <title>Work Day Scheduler</title>
+  </head>
 
-  <!-- Additional CSS -->
-  <link rel="stylesheet" href="style.css" type="text/css" />
-  <title>Work Day Scheduler</title>
-</head>
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+    </header>
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Time</th>
+            <th scope="col">What's the plan?</th>
+            <th scope="col">Set it</th>
+            <th scope="col">Forget it</th>
 
-<body>
-  <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
-    <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p id="currentDay" class="lead"></p>
-  </header>
-  <div class="container">
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">9:00 AM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn" id="saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>
+          </tr>
+          <tr>
+            <th scope="row">10:00 AM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">11:00 AM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">12:00 PM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">1:00 PM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">2:00 PM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">3:00 PM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">4:00 PM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+          <tr>
+            <th scope="row">5:00 PM</th>
+            <td class="calendar-event">
+              <div class="form-group">
+                <textarea
+                  class="calendar-text"
+                  id="exampleTextarea"
+                  rows="2"
+                ></textarea>
+              </div>
+            </td>
+            <td><i class="fas fa-calendar-plus fa-4x saveBtn"></i></td>
+            <td><i class="fas fa-trash-alt fa-4x"></i></td>          </tr>
+        </tbody>
+      </table>
+    </div>
 
+    <!-- Predefined Javascript -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <!-- Javascript -->
+        <script src="script.js"></script>
 
-    <!-- Timeblocks go here -->
-
-    
-  </div>
-
-
-  <!-- Javascript -->
-  <script src="script.js"></script>
-  <!-- Predefined Javascript -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-</body>
-
+  </body>
 </html>
