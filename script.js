@@ -1,17 +1,18 @@
 $(document).ready(() => {
-  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+  // console.log("document loaded");
 
-  let currentTime = moment().hour();
-
-  if (currentTime === $(".time-9").)
-
-  // link time to each hour block
-  // set if statements to show color code
+  // declare variable with empty string
   let saveUserInput = "";
 
-  // function that takes input and saves to localStorage
+  // set text of element to show time using moment
+  $("#currentDay").text(moment().format("dddd, h:mm a"));
 
-  $(".calendar-text").each(function () {
+  // declare current time variable and use for moment reference
+  let currentTime = moment().hour();
+  //   console.log(currentTime);
+
+  // function that takes input and saves to localStorage, then adapts color-coding
+  $(".calendar-text").each(() => {
     // console.log($(this))
     let eleId = $(this).attr("id");
     // console.log(eleId)
@@ -20,11 +21,28 @@ $(document).ready(() => {
     if (localVal !== null) {
       $(this).val(localVal);
     }
-  });
-  // jquery onclick for each button
 
-  $(".saveBtn").on("click", function () {
+    // reassign currentTime to focus on hour
+    currentTime = moment().hour();
+    // console.log(currentTime)
+
+    // create variable to pull specific hour for each block
+    let timeBlock = $(this).attr("data-hour");
+
+    // if/else if statements for color coding
+    if (timeBlock > currentTime) {
+      $(this).addClass("future");
+    } else if (timeBlock < currentTime) {
+      $(this).addClass("past");
+    } else if (timeBlock == currentTime) {
+      $(this).addClass("present");
+    }
+  });
+
+  // jquery onclick for each button
+  $(".saveBtn").on("click", () => {
     // console.log("click")
+
     // Capture text-area input content
     saveUserInput = $(this)
       .parent()
@@ -32,19 +50,23 @@ $(document).ready(() => {
       .children(".calendar-text")
       .val();
 
-    // console.log(saveEvent)
     let eleId = $(this)
       .parent()
       .siblings(".calendar-event")
       .children(".calendar-text")
       .attr("id");
     // console.log(eleId)
+
+    // set item with local storage when save button is clicked
     localStorage.setItem(eleId, saveUserInput);
   });
-  // function that refreshes page
+  // function that refreshes page on click
   $(".saveBtn").on("click", () => {
     location.reload();
   });
-  // momentum
-  // function that changes color code based on time (past/present/future)
+  // function that clears data and refreshes page
+  $(".clearBtn").on("click", () => {
+    localStorage.clear();
+    location.reload();
+  });
 });

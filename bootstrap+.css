@@ -1,4 +1,4 @@
-
+/* body-general */
 .jumbotron {
   text-align: center;
   background-color: rgb(170, 103, 233);
@@ -8,32 +8,49 @@
 }
 
 .container {
-    width: 100vw;
-
+    width: 100vw;   
 }
 
-.time {
-    width: 100px;
+.table {
+    text-align: center;
+    table-layout: fixed;
+    vertical-align: center;
 }
 
 .calendar-text {
     width: 100%;
 }
 
-.saveBtn {
-    /* width: 100px; */
-    
-    margin-right: 0;
-    padding-right: 0;
-    float: left;
-}
-
-.clearBtn {
-    display: flex;
-    justify-content: center;
-}
-
+/* save button */
 #saveBtn:hover {
   color: rgb(170, 103, 233);
   font-size: 45px;
 } 
+
+/* color-coding */
+.past {
+    background-color: lightgray;
+    color: black;
+}
+
+.present {
+    background-color: lightblue;
+    color: black;
+}
+
+.future {
+    background-color: green;
+    color: black;
+}
+
+/* clear button */
+#clearBtn:hover {
+    color: red;
+    font-size: 65px;
+}
+
+.clearBtn-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
