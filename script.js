@@ -7,12 +7,13 @@ $(document).ready(() => {
   // set text of element to show time using moment
   $("#currentDay").text(moment().format("dddd, h:mm a"));
 
-  // declare current time variable and use for moment reference
+  //   declare current time variable and use for moment reference
   let currentTime = moment().hour();
   //   console.log(currentTime);
 
-  // function that takes input and saves to localStorage, then adapts color-coding
-  $(".calendar-text").each(() => {
+  // function that takes input and saves to localStorage
+
+  $(".calendar-text").each(function () {
     // console.log($(this))
     let eleId = $(this).attr("id");
     // console.log(eleId)
@@ -21,15 +22,13 @@ $(document).ready(() => {
     if (localVal !== null) {
       $(this).val(localVal);
     }
-
-    // reassign currentTime to focus on hour
+    // set currentTime to moment reference for hour blocks
     currentTime = moment().hour();
     // console.log(currentTime)
 
-    // create variable to pull specific hour for each block
+    // focus on data-hour for block, then if statements for color coding
     let timeBlock = $(this).attr("data-hour");
 
-    // if/else if statements for color coding
     if (timeBlock > currentTime) {
       $(this).addClass("future");
     } else if (timeBlock < currentTime) {
@@ -38,11 +37,10 @@ $(document).ready(() => {
       $(this).addClass("present");
     }
   });
-
   // jquery onclick for each button
-  $(".saveBtn").on("click", () => {
-    // console.log("click")
 
+  $(".saveBtn").on("click", function () {
+    // console.log("click")
     // Capture text-area input content
     saveUserInput = $(this)
       .parent()
@@ -56,15 +54,13 @@ $(document).ready(() => {
       .children(".calendar-text")
       .attr("id");
     // console.log(eleId)
-
-    // set item with local storage when save button is clicked
     localStorage.setItem(eleId, saveUserInput);
   });
-  // function that refreshes page on click
+  // function that refreshes page
   $(".saveBtn").on("click", () => {
     location.reload();
   });
-  // function that clears data and refreshes page
+  // function that clears data on click
   $(".clearBtn").on("click", () => {
     localStorage.clear();
     location.reload();
